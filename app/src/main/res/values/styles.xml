@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <!-- Customize your theme here. -->
+        <!-- Actionbar color -->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="colorPrimary">@color/platte_colorPrimary</item>
+        <!--Status bar color-->
+        <item name="colorPrimaryDark">@color/platte_colorPrimaryDark</item>
+        <!--Window color-->
+        <item name="android:windowBackground">@color/platte_text_icon</item>
+        <item name="android:divider">@color/platte_divider_color</item>
+
+        <item name="android:textColorPrimary">@color/platte_primary_text</item>
+        <item name="android:textColorSecondary">@color/platte_text_icon</item>
+        <item name="android:colorControlNormal">@color/platte_text_icon</item>
+        <item name="android:colorAccent">@color/platte_accent_color</item>
+        <item name="android:navigationBarColor">@color/platte_colorPrimaryDark</item>
+    </style>
+
+
+
+
+
+</resources>

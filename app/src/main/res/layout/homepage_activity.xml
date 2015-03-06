@@ -1,0 +1,54 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+
+    <!--fitsSystemWindows 用于覆盖状态栏
+    colorPrimary用于设置AppBar(ActionBar)的颜色
+    -->
+
+    <!-- The main content view -->
+    <RelativeLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:background="?attr/colorPrimary"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:layout_width="match_parent"
+            android:minHeight="?attr/actionBarSize">
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.view.ViewPager
+            android:layout_below="@id/toolbar"
+            android:layout_width="match_parent"
+            android:id="@+id/viewpager"
+            android:layout_height="match_parent"/>
+
+    </RelativeLayout>
+    <!-- The navigation drawer -->
+    <LinearLayout
+        android:fitsSystemWindows="true"
+        android:id="@+id/drawer_view"
+        android:layout_width="@dimen/navdrawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/left_drawer"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="0dp" />
+
+    </LinearLayout>
+</android.support.v4.widget.DrawerLayout>
