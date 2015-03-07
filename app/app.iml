@@ -93,7 +93,8 @@
     <orderEntry type="library" exported="" name="cardview-v7-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="library-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-21.0.3" level="project" />
-    <orderEntry type="module" module-name="library" exported="" />
+    <orderEntry type="module" module-name="asynchttpclient" exported="" />
+    <orderEntry type="module" module-name="circleimageview" exported="" />
     <orderEntry type="module" module-name="floatingbutton" exported="" />
     <orderEntry type="module" module-name="loadMoreListView" exported="" />
   </component>

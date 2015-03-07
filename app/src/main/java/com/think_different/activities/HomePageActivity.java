@@ -39,7 +39,6 @@ public class HomePageActivity extends ActionBarActivity {
     private ViewPager viewPager;
     private WeiboPagerAdapter mWeiboPagerAdapter;
 
-
     private Toolbar mToolbar;
 
     @Override
@@ -113,7 +112,6 @@ public class HomePageActivity extends ActionBarActivity {
     }
 
     private class WeiboPagerAdapter extends FragmentStatePagerAdapter {
-
 
         public WeiboPagerAdapter(android.support.v4.app.FragmentManager fm) {
             super(fm);

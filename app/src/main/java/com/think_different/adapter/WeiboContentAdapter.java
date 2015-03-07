@@ -18,13 +18,16 @@ import com.think_different.dao.WeiboDataBase;
 import com.think_different.javabean.Statuse;
 import com.think_different.utility.DebugLog;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by oceancx on 15/3/6.
  */
-public class WeiboContentAdapter  extends RecyclerView.Adapter<WeiboContentAdapter.ViewHolder> {
+public class WeiboContentAdapter  extends RecyclerView.Adapter<WeiboContentAdapter.ViewHolder>  {
 
     private Context mContext;
 
@@ -38,6 +41,8 @@ public class WeiboContentAdapter  extends RecyclerView.Adapter<WeiboContentAdapt
         mContext =context;
         init();
     }
+
+
 
     private void init() {
         Statuses=new ArrayList<Statuse>();
@@ -80,6 +85,7 @@ public class WeiboContentAdapter  extends RecyclerView.Adapter<WeiboContentAdapt
         holder.vContent.setText(statues.getText());
     }
 
+
     @Override
     public int getItemCount() {
         return Statuses.size();
@@ -92,12 +98,15 @@ public class WeiboContentAdapter  extends RecyclerView.Adapter<WeiboContentAdapt
             super(itemView);
             vName= (TextView) itemView.findViewById(R.id.weibo_name);
             vContent=(TextView)itemView.findViewById(R.id.weibo_content);
+            circleImageView=(CircleImageView)itemView.findViewById(R.id.weibo_avatar);
         }
 
 
-
+        protected CircleImageView circleImageView;
         protected TextView vName;
         protected TextView vContent;
     }
+
+
 
 }

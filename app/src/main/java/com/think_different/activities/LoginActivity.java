@@ -80,10 +80,15 @@ public class LoginActivity extends ActionBarActivity {
                             String str = new String(responseBody, "utf-8");
                             DebugLog.e(str);
 
-                            String access_token = str.split(":")[1].split(",")[0];
                             //获取到AcessToken
+                            String access_token = str.split(":")[1].split(",")[0];
+
+                            // 此处应该 继续获取用户信息,然后创建用户文件夹
+
 
                             preferences.storeAcessToken(access_token, 0L, 0L, 0L);
+
+
                             Intent i =new Intent(LoginActivity.this,HomePageActivity.class);
                             startActivity(i);
                             finish();

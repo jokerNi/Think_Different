@@ -12,12 +12,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.costum.android.widget.LoadMoreListView;
 import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.melnykov.fab.FloatingActionButton;
 import com.think_different.R;
+import com.think_different.adapter.WeiboAdapter;
 import com.think_different.adapter.WeiboContentAdapter;
 import com.think_different.customviews.SendWeiboView;
 import com.think_different.dao.WeiboDataBase;
@@ -28,6 +30,8 @@ import com.think_different.network.WeiBoAPI;
 import com.think_different.preferences.Preferences;
 import com.think_different.utility.DebugLog;
 import com.think_different.utility.WeiboParameters;
+
+import java.util.List;
 
 /**
  * Created by oceancx on 15/3/4.
@@ -40,15 +44,16 @@ public class TimelineFragment extends android.support.v4.app.Fragment implements
     //发送微博的自定义视图
     private SendWeiboView mSendWeiboView;
 
-    private LoadMoreListView mListView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    private WeiboContentAdapter weiboAdapter;
+    private WeiboAdapter weiboAdapter;
 
     private SQLiteDatabase db;
     private WeiboDataBase db_helper;
 
-    private RecyclerView mRecyclerView;
+    private ListView mListView;
 
+    
+    
     private View mRootView;
 
 
@@ -66,27 +71,22 @@ public class TimelineFragment extends android.support.v4.app.Fragment implements
 
         client = new AsyncHttpClient();
 
-
         // mSendWeiboView = (SendWeiboView) LayoutInflater.from(getActivity()).inflate(R.layout.sendweibo_view, null).findViewById(R.id.SendWeiboView);
-//        mListView = (LoadMoreListView) getView().findViewById(R.id.main_lv);
-        mRecyclerView = (RecyclerView) getView().findViewById(R.id.recycler_view);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(llm);
+      
+        mListView = (ListView) mRootView.findViewById(R.id.lv);
 
+        weiboAdapter = new WeiboAdapter(getActivity());
+        mListView.setAdapter(weiboAdapter);
 
-        weiboAdapter = new WeiboContentAdapter(getActivity());
-        mRecyclerView.setAdapter(weiboAdapter);
-
-
+        mListView.setDividerHeight(0);
         //mListView.addHeaderView(mSendWeiboView);
 
 
-        FloatingActionButton fab = (FloatingActionButton) getView().findViewById(R.id.fab);
-        fab.attachToRecyclerView(mRecyclerView);
+        FloatingActionButton fab = (FloatingActionButton) mRootView.findViewById(R.id.fab);
+        fab.attachToListView(mListView);
 
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) getView().findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) mRootView.findViewById(R.id.swipe_container);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
@@ -165,7 +165,6 @@ public class TimelineFragment extends android.support.v4.app.Fragment implements
                     int i = 0;
                     WeiboReceive weibo = gson.fromJson(json, WeiboReceive.class);
 
-
                     db.beginTransaction();
                     try {
                         for (Statuse statuse : weibo.getStatuses()) {
@@ -180,7 +179,7 @@ public class TimelineFragment extends android.support.v4.app.Fragment implements
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
-                        db.close();
+
                     }
 
                 } catch (Exception e) {

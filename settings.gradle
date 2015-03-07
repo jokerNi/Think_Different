@@ -1,1 +1,1 @@
-include ':app', ':library', ':loadMoreListView', ':floatingbutton', ':Lib_ActivityOptionsICS'
+include ':app', ':loadMoreListView', ':floatingbutton', ':Lib_ActivityOptionsICS', ':circleimageview', ':asynchttpclient'

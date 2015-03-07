@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/oceancx/AndroidOpenLibrary/Think_Different/asynchttpclient/src/main/res"/><source path="/Users/oceancx/AndroidOpenLibrary/Think_Different/asynchttpclient/build/generated/res/rs/release"/><source path="/Users/oceancx/AndroidOpenLibrary/Think_Different/asynchttpclient/build/generated/res/generated/release"/></dataSet><dataSet config="release"><source path="/Users/oceancx/AndroidOpenLibrary/Think_Different/asynchttpclient/src/release/res"/></dataSet><mergedItems/></merger>

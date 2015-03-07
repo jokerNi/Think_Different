@@ -5,8 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/Lib_ActivityOptionsICS/Lib_ActivityOptionsICS.iml" filepath="$PROJECT_DIR$/Lib_ActivityOptionsICS/Lib_ActivityOptionsICS.iml" />
       <module fileurl="file://$PROJECT_DIR$/Think_Different.iml" filepath="$PROJECT_DIR$/Think_Different.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/asynchttpclient/asynchttpclient.iml" filepath="$PROJECT_DIR$/asynchttpclient/asynchttpclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/circleimageview/circleimageview.iml" filepath="$PROJECT_DIR$/circleimageview/circleimageview.iml" />
       <module fileurl="file://$PROJECT_DIR$/floatingbutton/floatingbutton.iml" filepath="$PROJECT_DIR$/floatingbutton/floatingbutton.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/loadMoreListView/loadMoreListView.iml" filepath="$PROJECT_DIR$/loadMoreListView/loadMoreListView.iml" />
     </modules>
   </component>
