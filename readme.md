@@ -1,1 +1,1 @@
-![ display ](./weibo3)
+![ display ](weibo3.gif)
