@@ -9,16 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.activeandroid.query.Select;
 import com.google.gson.Gson;
 import com.think_different.R;
-import com.think_different.Weibo;
-import com.think_different.activedroid.Item;
 import com.think_different.dao.WeiboDataBase;
 import com.think_different.javabean.Statuse;
-import com.think_different.utility.DebugLog;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 

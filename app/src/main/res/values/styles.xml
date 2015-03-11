@@ -21,6 +21,24 @@
         <item name="android:navigationBarColor">@color/platte_colorPrimaryDark</item>
     </style>
 
+    <!-- Base application theme. -->
+    <style name="AppThemeActionBar" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/platte_colorPrimary</item>
+        <!--Status bar color-->
+        <item name="colorPrimaryDark">@color/platte_colorPrimaryDark</item>
+        <!--Window color-->
+        <item name="android:windowBackground">@color/platte_text_icon</item>
+        <item name="android:divider">@color/platte_divider_color</item>
+
+        <item name="android:textColorPrimary">@color/platte_primary_text</item>
+        <item name="android:textColorSecondary">@color/platte_text_icon</item>
+        <item name="android:colorControlNormal">@color/platte_text_icon</item>
+        <item name="android:colorAccent">@color/platte_accent_color</item>
+        <item name="android:navigationBarColor">@color/platte_colorPrimaryDark</item>
+    </style>
+
+
 
 
 

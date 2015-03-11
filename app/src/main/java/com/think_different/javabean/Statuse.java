@@ -1,5 +1,7 @@
 package com.think_different.javabean;
 
+import com.think_different.Constants;
+
 import java.util.ArrayList;
 
 /**
@@ -55,6 +57,11 @@ public class Statuse {
     private Pic_ids pic_ids;
     // array	微博流内的推广微博ID
     private Ad ad;
+
+    public Statuse(String s) {
+        setText(s);
+        setUser( Constants.user);
+    }
 
     public String getCreated_at() {
         return created_at;

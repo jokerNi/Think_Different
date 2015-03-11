@@ -107,6 +107,7 @@ public class User {
     //用户当前的语言版本，zh-cn：简体中文，zh-tw：繁体中文，en：英语
     private String lang;
 
+
     public Long getId() {
         return id;
     }

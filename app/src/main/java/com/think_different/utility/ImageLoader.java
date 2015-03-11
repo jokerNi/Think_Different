@@ -60,6 +60,7 @@ public class ImageLoader  {
         /**
          * 从bitmap中解析图片
          */
+
         File f = new File(filepath);
 
         if (!f.exists()) {
@@ -76,6 +77,7 @@ public class ImageLoader  {
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(fis, null, options);
         options.inJustDecodeBounds=false;
+
         if (options.outWidth > reqWidth) {
             options.inSampleSize = Math.round((float)options.outWidth
                     / (float)reqWidth);
@@ -85,6 +87,7 @@ public class ImageLoader  {
                     .round((float)options.outHeight / (float)reqHeight) ? options.inSampleSize
                     : Math.round((float)options.outHeight / (float)reqHeight);
         }
+
 
         try {
             fis.close();

@@ -20,6 +20,7 @@
             android:background="?attr/colorPrimary"
             android:layout_height="wrap_content"
             android:elevation="10dp"
+            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
             android:minHeight="?attr/actionBarSize">
 
@@ -29,26 +30,55 @@
             android:layout_below="@id/toolbar"
             android:layout_width="match_parent"
             android:id="@+id/viewpager"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </RelativeLayout>
     <!-- The navigation drawer -->
     <LinearLayout
-        android:fitsSystemWindows="true"
         android:id="@+id/drawer_view"
+        android:background="@color/platte_text_icon"
         android:layout_width="@dimen/navdrawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:clickable="true"
+
         android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/side_face" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/side_face"
+                android:text="Ocean-藏心"
+                android:gravity="center_horizontal"
+                android:id="@+id/side_name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/side_intro"
+                android:textSize="12sp"
+                android:text="简介:www.2qwe.com"
+                android:paddingLeft="30dp"
+                android:layout_below="@id/side_name" />
+        </RelativeLayout>
 
         <ListView
             android:id="@+id/left_drawer"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:choiceMode="singleChoice"
-            android:divider="@android:color/transparent"
-            android:dividerHeight="0dp" />
+             />
 
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

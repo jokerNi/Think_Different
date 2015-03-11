@@ -9,8 +9,8 @@ public class WeiBoAPI {
 
 
     public static String REDIRECT_URL="https://api.weibo.com/oauth2/default.html";
-
-    public static String BASE_URL  ="https://api.weibo.com/2/";
+    public static final String BASE_URL="https://api.weibo.com/2/";
+    public static final String BASE_OAUTH2="https://api.weibo.com/oauth2/";
 
 
     public static final String OAUTH2_AUTHORIZE="https://api.weibo.com/oauth2/authorize?";
@@ -19,6 +19,10 @@ public class WeiBoAPI {
 
     public static final String GET_HOME_TIMELINE="https://api.weibo.com/2/statuses/home_timeline.json";
 
+    public static final String URL_USERS_SHOW="users/show.json";
+    public static final String URL_ACCOUNT_GET_UID="account/get_uid";
+    public static final String URL_ACCOUNT_END_SESSION ="account/end_session.json";
 
+    public static final String URL_REVOKEOAUTH2 = "revokeoauth2";
 
 }

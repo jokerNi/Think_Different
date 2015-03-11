@@ -10,7 +10,7 @@ import com.think_different.preferences.Preferences;
  */
 public class Login {
     public static boolean isLoged(Context context) {
-        return Preferences.getInstance(context).getAcessToken()!=null;
+        return Preferences.getInstance(context).isLogged();
     }
 
     public static boolean Log(Activity activity) {

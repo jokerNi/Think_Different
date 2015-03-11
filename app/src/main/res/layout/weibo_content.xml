@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/weibo_origin"
-        android:background="#fff"
+        android:background="#F4F4F4"
         android:layout_below="@id/weibo_date"
         android:visibility="gone">
 
@@ -132,7 +132,7 @@
             android:id="@+id/card_divider"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#123"
+            android:background="#F4F4F4"
             android:layout_alignParentTop="true"/>
 
         <TextView

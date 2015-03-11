@@ -10,6 +10,10 @@ import com.think_different.preferences.Preferences;
  * Created by oceancx on 15/3/3.
  */
 public class Utility {
+    public static String getCurUserDir(){
+        return getAppDir()+Constants.DIR_USER+"/"+ Constants.uid;
+    };
+
     public static void MakeToast(String str,Context context){
         Toast.makeText(context,str,Toast.LENGTH_LONG).show();
     }
@@ -35,6 +39,16 @@ public class Utility {
     }
 
 
+    public static String getAppDir() {
+        return Constants.SDCard + Constants.DIR;
+    }
 
+    public static String getUserDir() {
+        return getAppDir() + Constants.DIR_USER;
+    }
 
+    public static String facePath() {
+
+        return Constants.SDCard+Constants.DIR + Constants.DIR_USER+"/"+ Constants.uid +"/face.jpg";
+    }
 }

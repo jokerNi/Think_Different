@@ -28,7 +28,15 @@
         </activity>
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.TestRecycleView"/>
-        <activity android:name=".activities.HomePageActivity"/>
+        <activity android:name=".activities.SendWeibo" android:theme="@style/AppThemeActionBar"/>/>
+        <activity android:name=".activities.HomePageActivity" />
+
+        <provider
+            android:name="com.think_different.dao.WeiboProvider"
+            android:authorities="com.think_different.app.provider"
+            android:exported="true" >
+            <grant-uri-permission android:pathPattern=".*" />
+        </provider>
     </application>
 
 </manifest>

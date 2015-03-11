@@ -1,6 +1,7 @@
 package com.think_different.adapter;
 
 import android.content.Context;
+import android.content.Loader;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
@@ -22,6 +24,7 @@ import com.think_different.fragments.TimelineFragment;
 import com.think_different.javabean.Statuse;
 import com.think_different.utility.DebugLog;
 import com.think_different.utility.ImageLoader;
+import com.think_different.utility.TimeUtility;
 import com.think_different.utility.Utility;
 
 import org.apache.http.Header;
@@ -66,7 +69,7 @@ public class WeiboAdapter extends BaseAdapter {
         db=weiboDataBase.getWritableDatabase();
         Cursor cursor =db.rawQuery("select * from "+ WeiboDataBase.TABLE_STATUS ,null);
         while (cursor.moveToNext()){
-            String statusJson = cursor.getString(1);
+            String statusJson = cursor.getString(2);
             Gson gson=new Gson();
             Statuse st= gson.fromJson(statusJson,Statuse.class);
             Statuses.add(st);
@@ -77,7 +80,7 @@ public class WeiboAdapter extends BaseAdapter {
         Statuses.clear();
         Cursor cursor =db.rawQuery("select * from "+ WeiboDataBase.TABLE_STATUS ,null);
         while (cursor.moveToNext()){
-            String statusJson = cursor.getString(1);
+            String statusJson = cursor.getString(2);
             Gson gson=new Gson();
             Statuse st= gson.fromJson(statusJson,Statuse.class);
             Statuses.add(st);
@@ -89,19 +92,45 @@ public class WeiboAdapter extends BaseAdapter {
         holder.vName.setText(statues.getUser().getName());
         holder.vContent.setText(statues.getText());
         setAvatar(holder,statues);
+        holder.vDate.setText(TimeUtility.Description(statues.getCreated_at()));
+        holder.vFrom.setText(statues.getSource());
+        holder.vAttitudes.setText(statues.getAttitudes_count());
+        holder.vRetweets.setText(statues.getReposts_count());
+        holder.vCommites.setText(statues.getComments_count());
+        if(statues.getRetweeted_status()!=null ){
+            holder.oLayout.setVisibility(View.VISIBLE);
+            holder.oContent.setText(statues.getRetweeted_status().getText());
+        }else {
+            holder.oLayout.setVisibility(View.GONE);
+        }
     }
 
 
     public class ViewHolder  {
 
-        public ViewHolder(View itemView) {
-            vName = (TextView) itemView.findViewById(R.id.weibo_name);
-            vContent = (TextView) itemView.findViewById(R.id.weibo_content);
-            vAvatar = (CircleImageView) itemView.findViewById(R.id.weibo_avatar);
+        public ViewHolder(View v) {
+            vName = (TextView) v.findViewById(R.id.weibo_name);
+            vContent = (TextView) v.findViewById(R.id.weibo_content);
+            vAvatar = (CircleImageView) v.findViewById(R.id.weibo_avatar);
+            vDate = (TextView) v.findViewById(R.id.weibo_date);
+            vFrom = (TextView) v.findViewById(R.id.weibo_from);
+            vAttitudes = (TextView) v.findViewById(R.id.weibo_attitudes);
+            vRetweets = (TextView) v.findViewById(R.id.weibo_retweet);
+            vCommites = (TextView) v.findViewById(R.id.weibo_comments);
+            oLayout = (RelativeLayout) v.findViewById(R.id.weibo_origin);
+            oContent = (TextView) v.findViewById(R.id.weibo_orig_content);
         }
         protected TextView vName;
         protected TextView vContent;
         protected CircleImageView vAvatar;
+        protected TextView vDate;
+        protected TextView vFrom;
+        protected TextView vAttitudes;
+        protected TextView vRetweets;
+        protected TextView vCommites;
+        protected RelativeLayout oLayout;
+        protected TextView oContent;
+
     }
 
 
@@ -112,7 +141,7 @@ public class WeiboAdapter extends BaseAdapter {
          * 如果找不到 就从网上下载
          */
         final String idstr= statuse.getUser().getIdstr(); //用用户的idstr当做文件名字保存文件
-        Bitmap bitmap= mImageLoader.getBitmapFromCache(idstr + ".jpg");
+        Bitmap bitmap= mImageLoader.getBitmapFromCache(idstr);
         if( bitmap != null){
             holder.vAvatar.setImageBitmap(bitmap);
         }else {
@@ -133,8 +162,10 @@ public class WeiboAdapter extends BaseAdapter {
                 bitmap= mImageLoader.decodeBitmapFromFile(f.getAbsolutePath(),Utility.dip2px(36), Utility.dip2px(36) );
 
                 if(bitmap !=  null ) {
-                    mImageLoader.addToImageCache(idstr + ".jpg", bitmap);
+                    mImageLoader.addToImageCache(idstr, bitmap);
                     holder.vAvatar.setImageBitmap(bitmap);
+                }else {
+                    DebugLog.e("我是空得");
                 }
             }
         }
